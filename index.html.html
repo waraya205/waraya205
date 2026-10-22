@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>21-Day Claude Code Challenge – Beginner Ebook</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+<style>
+:root{--bg:#f6f9fc;--card:#fff;--ink:#0e1726;--mute:#566a85;--line:#d9e2ec;--mint:#0f9a6f;--mintb:#3ddc97;--amber:#ffb547;--navy:#0e1726;--navy2:#16294a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a111d;--card:#121d30;--ink:#eaf0f8;--mute:#9fb1c9;--line:#22324d;--mint:#3ddc97;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a111d;--card:#121d30;--ink:#eaf0f8;--mute:#9fb1c9;--line:#22324d;--mint:#3ddc97;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Poppins,"Segoe UI",system-ui,sans-serif;line-height:1.6}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.15;margin:0}
+h2{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:700;margin-bottom:12px}
+section{padding:54px 0}
+.btn{display:inline-block;background:var(--mintb);color:#0e1726;font-weight:700;border:0;border-radius:12px;padding:14px 26px;font-size:1.05rem;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--mint);border:2px solid var(--mint)}
+.hero{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;padding:46px 0 56px}
+.hg{display:grid;gap:34px;align-items:center}
+@media(min-width:760px){.hg{grid-template-columns:1.2fr .8fr}}
+.hero h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:700}
+.hero h1 b{color:var(--mintb)}
+.hero p{color:#c4d2e4;font-size:1.05rem;max-width:46ch}
+.tag{display:inline-block;border:1px solid var(--amber);color:var(--amber);border-radius:99px;padding:3px 14px;font-size:.82rem;margin-bottom:16px}
+.price{display:flex;align-items:baseline;gap:12px;margin:20px 0 6px}
+.price b{font-size:2rem}
+.price span{color:#c4d2e4;font-size:.9rem}
+.cover{max-width:290px;margin:0 auto;aspect-ratio:2/3;border-radius:10px;padding:20px;background:linear-gradient(180deg,#16294a,#0a111d);box-shadow:0 20px 50px rgba(0,0,0,.45),8px 0 0 #2b4a7c inset;display:flex;flex-direction:column;justify-content:space-between;color:#fff}
+.term{background:#080d17;border:1px solid #2a3d5e;border-radius:9px;padding:10px 12px;font:.62rem/1.7 ui-monospace,Menlo,Consolas,monospace}
+.term i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px}
+.term .g{color:var(--mintb)}
+.cover h2{font-size:2.5rem;color:var(--mintb);margin:0;font-weight:700}
+.cover h3{font-size:1.45rem;font-weight:700}
+.dots{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.dots span{aspect-ratio:1;border-radius:50%;background:var(--mintb)}
+.dots span:nth-child(n+8){background:var(--amber)}
+.dots span:nth-child(n+15){background:#fff}
+.grid3{display:grid;gap:16px}
+@media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{font-size:1.05rem;margin-bottom:6px}
+.card p,.muted{color:var(--mute);margin:0}
+.wk{color:var(--mint);font-weight:600;font-size:.85rem}
+.chk{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+@media(min-width:760px){.chk{grid-template-columns:1fr 1fr}}
+.chk li{padding-left:28px;position:relative}
+.chk li::before{content:"✓";position:absolute;left:0;color:var(--mint);font-weight:700}
+.peek{display:grid;gap:14px}
+@media(min-width:760px){.peek{grid-template-columns:1fr 1fr}}
+.peek .card{font-size:.92rem}
+.bad{border-left:5px solid #ff6b6b}.good{border-left:5px solid var(--mintb)}
+.q{font-style:italic}
+.who{font-weight:600;margin-top:10px;font-size:.9rem}
+.sample{display:inline-block;background:#fff4dd;color:#8a5a00;border-radius:6px;font-size:.7rem;padding:1px 8px;margin-top:8px}
+.buy{background:var(--card);border:2px solid var(--mintb);border-radius:20px;padding:24px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:14px 0}
+.steps li{counter-increment:s;position:relative;padding:4px 0 14px 44px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:2px;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--mintb);display:grid;place-items:center;font-weight:700}
+.gc{background:var(--navy);color:#fff;border-radius:14px;padding:16px 18px;margin:12px 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.gc small{color:#c4d2e4;display:block}
+.gc b{font-size:1.5rem;letter-spacing:1px}
+.gc button{background:var(--amber);color:#0e1726;border:0;border-radius:10px;padding:8px 16px;font-weight:600;cursor:pointer}
+label{display:block;font-weight:600;margin:12px 0 4px;font-size:.9rem}
+input{width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--bg)}
+.err{color:#e0455d;font-weight:600;min-height:1.4em;margin:6px 0 0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--mute);margin:8px 0 0}
+footer{padding:30px 0 50px;color:var(--mute);font-size:.82rem;border-top:1px solid var(--line)}
+.ty{max-width:640px;margin:0 auto;padding:46px 20px}
+.ty .tick{width:70px;height:70px;border-radius:50%;background:var(--mintb);color:#0e1726;display:grid;place-items:center;font-size:2.2rem;font-weight:700;margin-bottom:14px}
+.msg{width:100%;min-height:150px;padding:12px;border:2px solid var(--line);border-radius:10px;background:var(--bg);font-size:.85rem}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ============ LANDING VIEW ============ -->
+<div id="land">
+<header class="hero"><div class="wrap hg">
+ <div>
+  <span class="tag">For complete beginners · PDF ebook</span>
+  <h1>Learn <b>Claude Code</b> in 21 days, even if you have never written code.</h1>
+  <p>A step-by-step guide with 21 short lessons, copy-and-paste prompts and three real projects. Build your first web page in a week and publish your own project in three.</p>
+  <div class="price"><b id="p1"></b><span>one-time payment · instant PDF after confirmation</span></div>
+  <a class="btn" href="#buy">Get the ebook</a>
+ </div>
+ <div class="cover" aria-label="Ebook cover">
+  <div class="term"><i style="background:#ff6b6b"></i><i style="background:#ffb547"></i><i style="background:#3ddc97"></i><br><span class="g">$ claude</span><br>&gt; Build me my first website<br><span class="g">✓ Created index.html</span></div>
+  <div><h2>21-DAY</h2><h3>CLAUDE CODE<br>CHALLENGE</h3></div>
+  <div class="dots" aria-hidden="true"><script>document.write('<span></span>'.repeat(21))</script></div>
+ </div>
+</div></header>
+
+<section><div class="wrap">
+ <h2>Is this for you?</h2>
+ <ul class="chk">
+  <li>You are curious about AI tools but feel you are “not techy.”</li>
+  <li>You want to build a website, a small app or a simple tool for yourself or your business.</li>
+  <li>You prefer plain language over jargon.</li>
+  <li>You like learning a little every day, 25 to 90 minutes at a time.</li>
+ </ul>
+</div></section>
+
+<section style="background:var(--card)"><div class="wrap">
+ <h2>Your 3-week path</h2>
+ <p class="muted" style="margin-bottom:18px">Every day has a short lesson, practice steps, a ready-made prompt, a checklist and a tip.</p>
+ <div class="grid3">
+  <div class="card"><span class="wk">Week 1</span><h3>Foundations</h3><p>Install Claude Code, learn the terminal basics, write strong prompts, stay safe, and build your first web page.</p></div>
+  <div class="card"><span class="wk">Week 2</span><h3>Building</h3><p>Plan first, give Claude a project memory, save checkpoints with Git, fix errors, and grow a small app step by step.</p></div>
+  <div class="card"><span class="wk">Week 3</span><h3>Real projects</h3><p>Polish the design, work with files, create your own shortcuts, test your work, publish online, and finish a capstone.</p></div>
+ </div>
+</div></section>
+
+<section><div class="wrap">
+ <h2>What is inside</h2>
+ <ul class="chk">
+  <li>58 pages in a phone-friendly PDF</li><li>21 daily lessons in 3 weeks</li>
+  <li>21 copy-and-paste prompts</li><li>3 hands-on projects</li>
+  <li>Command cheat sheet and prompt templates</li><li>Troubleshooting guide and glossary</li>
+  <li>21-day progress tracker</li><li>Printable certificate of completion</li>
+ </ul>
+</div></section>
+
+<section style="background:var(--card)"><div class="wrap">
+ <h2>A peek at Day 4: the art of the prompt</h2>
+ <p class="muted" style="margin-bottom:16px">The difference between a vague request and a clear one changes everything.</p>
+ <div class="peek">
+  <div class="card bad"><b>Weak</b><p>“Make a website.”</p></div>
+  <div class="card good"><b>Strong</b><p>“Create a one-page website for my small tea shop. Add a header, three product cards and a contact section. Use green and cream colors and make it work on a phone.”</p></div>
+ </div>
+</div></section>
+
+<section id="tms"><div class="wrap">
+ <h2>What readers say</h2>
+ <div class="grid3" id="tm"></div>
+</div></section>
+
+<section id="buy" style="background:var(--card)"><div class="wrap" style="max-width:640px">
+ <div class="buy">
+  <h2>Get your copy for <span id="p2"></span></h2>
+  <p class="muted">Pay with GCash, then send your proof of payment. We send the PDF once the payment is confirmed.</p>
+  <ol class="steps">
+   <li><b>Send <span id="p3"></span> through GCash</b> to this number:
+    <div class="gc"><div><small id="gname"></small><b id="gnum"></b></div><button type="button" id="cpn">Copy number</button></div></li>
+   <li><b>Fill in the form below</b> with your name, email and the GCash reference number from your receipt.</li>
+   <li><b>Send your proof of payment</b> on the next page. You will get your ebook by email after we confirm it.</li>
+  </ol>
+  <div id="f">
+   <label for="nm">Your name</label><input id="nm" autocomplete="name">
+   <label for="em">Email for your ebook</label><input id="em" type="email" autocomplete="email">
+   <label for="rf">GCash reference number</label><input id="rf" inputmode="numeric" autocomplete="off">
+   <p class="err" id="err" role="alert"></p>
+   <button class="btn" type="button" id="go" style="width:100%">I have paid. Continue</button>
+  </div>
+ </div>
+</div></section>
+
+<section><div class="wrap" style="max-width:700px">
+ <h2>Questions</h2>
+ <details><summary>Do I need coding experience?</summary><p>No. The lessons start from zero and explain every term in plain language.</p></details>
+ <details><summary>What do I need to follow along?</summary><p>A Windows, Mac or Linux computer, an internet connection, and a Claude account that includes Claude Code access. The ebook does not include a Claude subscription. Check Anthropic’s website for current requirements and prices.</p></details>
+ <details><summary>How do I receive the ebook?</summary><p>After you send your GCash proof of payment and we confirm it, we email you the PDF.</p></details>
+ <details><summary>Is this an official Anthropic product?</summary><p>No. This is an independent learning guide. Claude and Claude Code are products of Anthropic.</p></details>
+ <details><summary>Claude Code changes. Will the ebook still help?</summary><p>Yes. It teaches habits that last: clear prompts, small steps, safe approvals, testing and saving checkpoints. When a screen looks different, the book shows you how to check the official documentation.</p></details>
+</div></section>
+
+<footer><div class="wrap">21-Day Claude Code Challenge is an independent educational resource and is not affiliated with or endorsed by Anthropic. Results depend on your own practice. Please do not share passwords or private data in any AI chat.</div></footer>
+</div>
+
+<!-- ============ THANK-YOU VIEW ============ -->
+<div id="thanks" hidden>
+ <div class="ty">
+  <div class="tick" aria-hidden="true">✓</div>
+  <h1 style="font-size:clamp(1.8rem,6vw,2.4rem)">Thank you, <span id="tn"></span>!</h1>
+  <p class="muted" style="margin:10px 0 20px">One last step: send us your proof of payment so we can confirm it and email your ebook.</p>
+  <ol class="steps">
+   <li><b>Send your proof</b> by tapping a button below. Your details are already filled in. Attach a screenshot of your GCash receipt.</li>
+   <li><b>We confirm your payment</b> in our GCash. This usually takes up to <span id="hrs"></span>.</li>
+   <li><b>Check your email</b> (<span id="te"></span>). Your PDF ebook will arrive there. Please look in spam or promotions too.</li>
+  </ol>
+  <textarea class="msg" id="msg" readonly aria-label="Your message"></textarea>
+  <div class="row"><a class="btn" id="mail" target="_blank" rel="noopener" hidden>Send by email</a><a class="btn alt" id="sms" target="_blank" rel="noopener">Send by text</a><button class="btn alt" id="cp" type="button">Copy message</button></div>
+  <p class="muted" style="font-size:.88rem">Keep your GCash receipt until you receive the ebook. Haven’t paid yet? Send <b id="p4"></b> to <b id="gn2"></b>.</p>
+  <p style="margin-top:26px"><a href="#" id="back" class="btn alt">Back to the ebook page</a></p>
+ </div>
+</div>
+
+<script>
+/* ---- Edit these settings ---- */
+const CFG={price:299,gcash:'09202924562',gname:'',sms:'09202924562',email:'waraya205@gmail.com',hours:'24 hours'};
+/* gname: the name on your GCash account (shows buyers who they are paying).  sms: the number buyers text their proof to.  email: your email address for proof of payment (the email button stays hidden until you add it). */
+/* Add REAL reviews here (with the reader's permission). While this list is empty, the whole reviews section stays hidden.
+   Format: {n:'Maria, Cebu',t:'Her exact words here.'}, */
+const TM=[
+];
+const $=id=>document.getElementById(id);
+const peso='₱'+CFG.price.toLocaleString('en-US');
+const num=CFG.gcash.replace(/^(\d{4})(\d{3})(\d{4})$/,'$1 $2 $3');
+['p1','p2','p3','p4'].forEach(i=>$(i).textContent=peso);
+$('gnum').textContent=num;$('gn2').textContent=num;$('hrs').textContent=CFG.hours;
+$('gname').textContent=CFG.gname?('GCash account name: '+CFG.gname):'GCash number';
+$('tms').hidden=!TM.length;
+$('tm').innerHTML=TM.map(t=>`<figure class="card" style="margin:0"><p class="q">“${t.t}”</p><div class="who">${t.n}</div>${t.sample?'<span class="sample">Sample review – replace with a real one</span>':''}</figure>`).join('');
+let order={name:'',email:'',ref:''};
+try{order=JSON.parse(sessionStorage.getItem('ord')||'null')||order}catch(e){}
+function copy(txt,btn,label){try{navigator.clipboard.writeText(txt)}catch(e){}btn.textContent='Copied ✓';setTimeout(()=>btn.textContent=label,1800)}
+$('cpn').onclick=()=>copy(CFG.gcash,$('cpn'),'Copy number');
+let show=location.hash==='#thank-you';
+function submitOrder(){
+ const nm=$('nm').value.trim(),em=$('em').value.trim(),rf=$('rf').value.trim();
+ if(!nm||!/^\S+@\S+\.\S+$/.test(em)||rf.length<6){$('err').textContent='Please enter your name, a valid email and your GCash reference number.';return}
+ $('err').textContent='';order={name:nm,email:em,ref:rf};
+ try{sessionStorage.setItem('ord',JSON.stringify(order))}catch(x){}
+ show=true;try{location.hash='thank-you'}catch(x){}
+ route()}
+$('go').onclick=submitOrder;
+['nm','em','rf'].forEach(i=>$(i).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitOrder()}}));
+function route(){
+ const ty=show&&order.name;
+ $('land').hidden=!!ty;$('thanks').hidden=!ty;
+ if(ty){
+  $('tn').textContent=order.name.split(' ')[0];$('te').textContent=order.email;
+  const m='Hi! I paid '+peso+' through GCash for the 21-Day Claude Code Challenge ebook.\nName: '+order.name+'\nEmail: '+order.email+'\nGCash reference no.: '+order.ref+'\nI am attaching my receipt screenshot. Please send my ebook. Thank you!';
+  $('msg').value=m;
+  const intl=CFG.sms.replace(/^0/,'+63');
+  $('sms').href='sms:'+intl+'?&body='+encodeURIComponent(m);
+  $('sms').textContent='Send by text to '+CFG.sms.replace(/^(\d{4})(\d{3})(\d{4})$/,'$1 $2 $3');
+  $('mail').hidden=!CFG.email;
+  $('mail').href='mailto:'+CFG.email+'?subject='+encodeURIComponent('Payment proof – 21-Day Claude Code Challenge')+'&body='+encodeURIComponent(m);
+  $('cp').onclick=()=>copy(m,$('cp'),'Copy message');
+  window.scrollTo(0,0)}
+}
+$('back').onclick=e=>{e.preventDefault();show=false;try{location.hash=''}catch(x){}route();window.scrollTo(0,0)};
+window.addEventListener('hashchange',()=>{show=location.hash==='#thank-you';route()});route();
+</script>
+</body>
+</html>
